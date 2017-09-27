@@ -22,6 +22,10 @@
 
 <title>ECOMMERCE - ${title}</title>
 
+<script>
+	window.menu = '${title}';
+</script>
+
 <!-- Bootstrap core CSS -->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
 
@@ -32,23 +36,44 @@
 
 <body>
 
-	<!-- Navigation -->
-	<%@ include file="./shared/navbar.jsp"%>
+	<div class="wrapper">
 
-	<!-- Page Content -->
-	<!-- Loading the home content -->
-	<c:if test="${userClickHome == true}">
-		<%@ include file="home.jsp"%>
-	</c:if>
-	
-	<!-- Footer -->
-	<%@include file="./shared/footer.jsp"%>
-	
-	
-	<!-- Bootstrap core JavaScript -->
-	<script src="${js}/jquery.min.js"></script>
-	<script src="${js}/popper.min.js"></script>
-	<script src="${js}/bootstrap.min.js"></script>
+		<!-- Navigation -->
+		<%@ include file="./shared/navbar.jsp"%>
+
+		<!-- Page Content -->
+
+		<div class="content">
+			<!-- Loading the home content -->
+			<c:if test="${userClickHome == true}">
+				<%@ include file="home.jsp"%>
+			</c:if>
+
+			<!-- Load only when click on about -->
+			<c:if test="${userClickAbout == true}">
+				<%@include file="about.jsp"%>
+			</c:if>
+
+			<!-- Load only when click on contact -->
+			<c:if test="${userClickContact == true}">
+				<%@include file="contact.jsp"%>
+			</c:if>
+
+		</div>
+
+		<!-- Footer -->
+		<%@include file="./shared/footer.jsp"%>
+
+
+		<!-- Bootstrap core JavaScript -->
+		<script src="${js}/jquery.min.js"></script>
+		<script src="${js}/popper.min.js"></script>
+		<script src="${js}/bootstrap.min.js"></script>
+
+		<!-- Self coded javascript -->
+		<script src="${js}/myapp.js"></script>
+
+	</div>
 
 </body>
 

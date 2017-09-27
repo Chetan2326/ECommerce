@@ -1,4 +1,5 @@
-<!-- Navigation bar -->
+
+<!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 	<div class="container">
 		<a class="navbar-brand" href="${contextRoot}/home">ECommerce</a>
@@ -8,16 +9,13 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarResponsive">
-			<ul class="navbar-nav ml-auto">
-				<li class="nav-item active"><a class="nav-link" href="${contextRoot}/home">Home
-						<span class="sr-only">(current)</span>
-				</a></li>
-				<li class="nav-item"><a class="nav-link" href="${contextRoot}/about">About</a></li>
-				<li class="nav-item"><a class="nav-link" href="${contextRoot}/listProducts">View Products</a>
-				</li>
-				<li class="nav-item"><a class="nav-link" href="${contextRoot}/contact">Contact</a></li>
+			<ul class="nav navbar-nav ml-auto">
+				<li class="nav-item" id="about"><a class="nav-link" href="${contextRoot}/about">About</a></li>
+
+				<li class="nav-item" id="contact"><a class="nav-link" href="${contextRoot}/contact">Contact</a></li>
+
+				<li class="nav-item" id="listProducts"><a class="nav-link" href="${contextRoot}/show/all/products">View Products</a></li>
 			</ul>
 		</div>
 	</div>
 </nav>
-
