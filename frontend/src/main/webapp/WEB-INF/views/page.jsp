@@ -25,7 +25,7 @@
 <script>
 	window.menu = '${title}';
 	
-	window.contextRoot = '${contextRoot}';
+	window.contextRoot = '${contextRoot}'
 	
 </script>
 
@@ -86,7 +86,7 @@
 		<script src="${js}/jquery.js"></script>
 		<script src="${js}/bootstrap.min.js"></script>
 		
-		<!-- DataTable plugins -->
+		<!-- DataTable plugins -->		
 		<script src="${js}/jquery.dataTables.js"></script>
 		
 		<!-- DataTable Bootstrap plugins -->

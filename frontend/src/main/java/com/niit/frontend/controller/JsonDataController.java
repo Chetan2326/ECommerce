@@ -12,13 +12,13 @@ import com.niit.backend.dao.ProductDAO;
 import com.niit.backend.dto.Product;
 
 @Controller
-@RequestMapping("/json/data")
+@RequestMapping(value= "/json/data")
 public class JsonDataController {
 
 	@Autowired
 	private ProductDAO productDAO;
 	
-	@RequestMapping("/all/products")
+	@RequestMapping(value = "/all/products")
 	@ResponseBody
 	public List<Product> getAllProducts()	{ 
 		
@@ -26,9 +26,9 @@ public class JsonDataController {
 		
 	}
 	
-	@RequestMapping("/category/{id}/products")
+	@RequestMapping(value = "/category/{id}/products")
 	@ResponseBody
-	public List<Product> getProductsByCategory(@PathVariable int id)	{ 
+	public List<Product> getProductsByCategory(@PathVariable("id") int id)	{ 
 		
 		return productDAO.listActiveProductsByCategory(id);
 		

@@ -19,29 +19,29 @@ $(function() {
 	}
 
 
-	//code for jquery datatables
+	// code for jquery datatables
 
 	var $table = $('#productListTable');
 	
 	// execute the below code only where we have this table
 	if($table.length)	{
-		//console.log('Inside the table!');
+		// console.log('Inside the table!');
 
 		var jsonUrl = '';
-		if(window.categoryId = '')	{
-			jsonUrl ='/json/data/all/products';
+		if(window.categoryId == '')	{
+			jsonUrl = window.contextRoot + '/json/data/all/products';
 		}
 		else {
-			jsonUrl ='/json/data/category/' + window.categoryId + '/products';
+			jsonUrl = window.contextRoot + '/json/data/category/'+ window.categoryId +'/products';
 		}
 		
 		$table.DataTable({
 			
 			lengthMenu: [[3,5,10,-1], ['3 Records', '5 Records', '10 Records', 'All']],
 			pageLength: 5, 
-			ajax:	{
-				url: jsonUrl,
-				dataSrc: ''
+			"ajax":	{
+				"url": jsonUrl,
+				"dataSrc": ""
 			},
 			columns: [
 				
@@ -52,10 +52,25 @@ $(function() {
 					data: 'brand'
 				},
 				{
-					data: 'unitPrice'
+					data: 'unitPrice',
+					mRender: function(data, type, row)	{
+						return '&#8377; '+ data
+					}
 				},
 				{
 					data: 'quantity'
+				},
+				{
+					data: 'id',
+					bSortable: false,
+					mRender: function(data, type, row) {
+		        		  
+		        		  var str = '';
+		        		  str += '<a href="'+window.contextRoot+ '/show/'+data+'/product" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></a> &#160;';
+		        		  str += '<a href="'+window.contextRoot+ '/cart/add/'+data+'/product" class="btn btn-warning"><span class="glyphicon glyphicon-shopping-cart"></span></a>';
+		        		  
+		        		  return str;
+					}
 				}
 
 
