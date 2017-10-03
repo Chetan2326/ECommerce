@@ -12,7 +12,7 @@
     ">
 
 	<context:component-scan base-package="com.niit.frontend.controller"></context:component-scan>
-	<context:component-scan base-package="com.niit.backend.daoimpl"></context:component-scan>
+	<context:component-scan base-package="com.niit.backend"></context:component-scan>
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
