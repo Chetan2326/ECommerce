@@ -22,6 +22,5 @@
 
 	<!-- Loading static resources -->
 	<mvc:annotation-driven />
-	<mvc:default-servlet-handler />
 	<mvc:resources location="/assests/" mapping="/resources/**"></mvc:resources>
 </beans>

@@ -1,14 +1,12 @@
 package com.niit.backend.test;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.BeforeClass;
-import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.niit.backend.dao.CategoryDAO;
 import com.niit.backend.dto.Category;
 
+@SuppressWarnings("unused")
 public class CategoryTestCase {
 
 	private static AnnotationConfigApplicationContext context;
@@ -76,12 +74,12 @@ public class CategoryTestCase {
 		assertEquals("Successfully fetched the list of categories from the table!",2, categoryDAO.list().size());
 
 	}*/
-	
+	/*
 	@Test
 	public void testCRUDCategory() {
 		
 		
-		/*//add operation
+		//add operation
 		category = new Category(); category.setName("Mobile");
 		category.setDescription("This is some description for Mobile");
 		category.setImageURL("CAT_1.png");
@@ -94,11 +92,10 @@ public class CategoryTestCase {
 		  
 		assertEquals("Successfully added a category inside the table!",true,categoryDAO.add(category));
 		
-		*/
 		//fetch and update the category
 		category = categoryDAO.get(2);
 		
-		category.setName("Laptop");
+		category.setName("Television");
 
 		assertEquals("Successfully updated a single category in the table!", true, categoryDAO.update(category));
 
@@ -111,5 +108,5 @@ public class CategoryTestCase {
 		assertEquals("Successfully fetched the list of categories from the table!",2, categoryDAO.list().size());
 		
 	}
-	
+	*/
 }

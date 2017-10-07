@@ -65,6 +65,7 @@
 
 							<tr>
 
+								<th></th>
 								<th>Name</th>
 								<th>Brand</th>
 								<th>Price</th>
@@ -78,7 +79,7 @@
 						<tfoot>
 
 							<tr>
-
+								<th></th>
 								<th>Name</th>
 								<th>Brand</th>
 								<th>Price</th>
