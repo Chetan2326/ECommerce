@@ -1,5 +1,5 @@
 <!-- Navigation -->
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top"
+<nav class="navbar navbar-inverse navbar-expand-md navbar-dark bg-dark fixed-top"
 	role="navigation">
 	<div class="container">
 		<div class="navbar-header">
@@ -13,12 +13,10 @@
 				<span class="icon-bar"></span>
 
 			</button>
-			<a class="nav navbar-brand" href="${contextRoot}/home">ECommerce</a>
+			<a class="nav navbar-brand" href="${contextRoot}/home">NIIT ECOMMERCE</a>
 		</div>
-		<div class="nav collapse navbar-collapse navbar-right" id="navbarResponsive">
-			<ul class="nav navbar-nav navbar-right">
-				<li class="nav-item" id="listProducts"><a class="nav-link"
-					href="${contextRoot}/show/all/products">View Products</a></li>
+		<div class="nav collapse navbar-collapse" id="navbarResponsive">
+			<ul class="nav navbar-nav">
 
 				<li class="nav-item" id="about"><a class="nav-link"
 					href="${contextRoot}/about">About</a></li>
@@ -26,6 +24,9 @@
 				<li class="nav-item" id="contact"><a class="nav-link"
 					href="${contextRoot}/contact">Contact</a></li>
 
+				<li class="nav-item" id="listProducts"><a class="nav-link"
+					href="${contextRoot}/show/all/products">View Products</a></li>
+					
 				<li class="nav-item" id="manageProducts"><a class="nav-link"
 					href="${contextRoot}/manage/products">Manage Products</a></li>
 					
