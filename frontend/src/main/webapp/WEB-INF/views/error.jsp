@@ -54,6 +54,9 @@
 						<div class="jumbotron">
 							<h1>${errorTitle}</h1>
 							<hr/>
+							<c:if test="${not empty userModel.id}">
+								<c:redirect url="home"/>
+							</c:if>
 							<blockquote style="word-wrap:break-word">
 								${errorDescription}
 							</blockquote>						
