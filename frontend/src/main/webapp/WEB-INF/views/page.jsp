@@ -86,6 +86,11 @@
 				<%@include file="manageProducts.jsp"%>
 			</c:if>								
 
+			<!-- Load only when user clicks show cart -->
+			<c:if test="${userClickShowCart == true}">
+				<%@include file="cart.jsp"%>
+			</c:if>								
+
 		</div>
 
 		<!-- Footer -->

@@ -14,6 +14,9 @@ $(function() {
 		case 'Manage Products':
 			$('#manageProducts').addClass('active');
 			break;
+		case 'User Cart':
+			$('#userCart').addClass('active');
+			break;
 		default:	
 			if(menu == "Home") break;
 			$('#listProducts').addClass('active');
@@ -103,7 +106,7 @@ $(function() {
 	        				  str += '<a href="'+window.contextRoot+ '/manage/'+data+'/product" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span></a>';
 	        			  }
 	        			  else {
-			        		  if(row.quantity < 1)	{
+	        				  if(row.quantity < 1)	{
 				        		  str += '<a href="javascript:void(0)" class="btn btn-success disabled"><span class="glyphicon glyphicon-shopping-cart"></span></a>';		        			  
 			        		  }
 			        		  else	{
@@ -318,5 +321,43 @@ $(function() {
 	}
 	
 	//----------------------------
+	// handling the click event of refresh cart button
+	$('button[name="refreshCart"]').click(function() {
+		
+		// fetch the cart line id
+		var cartLineId = $(this).attr('value');
+		var countElement = $('#count_' + cartLineId);
+		
+		var originalCount = countElement.attr('value');
+		var currentCount = countElement.val();
+
+		// work only when the count has changed
+		if(currentCount !== originalCount) {
+			
+			if(currentCount < 1 || currentCount > 5) {
+				// reverting back to the original count
+				// user has given value below 1 and above 3
+				countElement.val(originalCount);
+				bootbox.alert({
+					size: 'medium',
+					title: 'Error',
+					message: 'Product count should be minimum 1 and maximum 5!'
+				});
+			}
+			else {
+				
+				var updateUrl = window.contextRoot + '/cart/' + cartLineId + '/update?count=' + currentCount;
+				// forward it to the controller
+				window.location.href = updateUrl;
+				
+			}
+			
+			
+			
+		}
+		
+		
+		
+	});
 	
 });

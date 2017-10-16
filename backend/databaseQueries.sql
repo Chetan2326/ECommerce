@@ -69,7 +69,7 @@ CREATE TABLE cart (
 INSERT INTO category (name, description,image_url,is_active) VALUES ('Laptop', 'This is description for Laptop category!', 'CAT_1.png', true);
 INSERT INTO category (name, description,image_url,is_active) VALUES ('Television', 'This is description for Television category!', 'CAT_2.png', true);
 INSERT INTO category (name, description,image_url,is_active) VALUES ('Mobile', 'This is description for Mobile category!', 'CAT_3.png', true);
--- adding four users 
+-- adding three users 
 INSERT INTO user_detail 
 (first_name, last_name, role, enabled, password, email, contact_number) 
 VALUES ('Virat', 'Kohli', 'ADMIN', true, '$2a$06$W4wwF/YpQDo2R0dqmuCQZuucz6Zziu1nz4QW3CcXU55v52pSLZRo2', 'vk@gmail.com', '8888888888');
@@ -79,9 +79,6 @@ VALUES ('Ravindra', 'Jadeja', 'SUPPLIER', true, '$2a$06$tDhJUf7ZVvvHg753qrKHC.tN
 INSERT INTO user_detail 
 (first_name, last_name, role, enabled, password, email, contact_number) 
 VALUES ('Ravichandra', 'Ashwin', 'SUPPLIER', true, '$2a$06$THt6Msnv5v88pZhyGRqjY.tADo0Hc75nHsq5xE1MjmTBO2N3/2EdK', 'ra@gmail.com', '7777777777');
-INSERT INTO user_detail 
-(first_name, last_name, role, enabled, password, email, contact_number) 
-VALUES ('Chetan', 'Poojary', 'USER', true, '$2a$06$yYRfSoAJupzxZ4nGXx4tLOcfFrAcZlhuhfDjmodMGzVi.ouTfIK6S', 'cp@gmail.com', '7208712078');
 -- adding a supplier correspondece address
 INSERT INTO address( user_id, address_line_one, address_line_two, city, state, country, postal_code, is_billing, is_shipping) 
 VALUES (2, '102 Sabarmati Society, Mahatma Gandhi Road', 'Near Salt Lake, Gandhi Nagar', 'Ahmedabad', 'Gujarat', 'India', '111111', true, false );

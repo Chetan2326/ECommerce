@@ -1,5 +1,6 @@
 package com.niit.backend.daoimpl;
 
+
 import java.util.List;
 
 import org.hibernate.SessionFactory;
@@ -9,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.backend.dao.UserDAO;
 import com.niit.backend.dto.Address;
-import com.niit.backend.dto.Cart;
 import com.niit.backend.dto.User;
 
 
@@ -39,19 +39,6 @@ public class UserDAOImpl implements UserDAO {
 		try {
 			
 			sessionFactory.getCurrentSession().persist(address);
-			return true;
-		}
-		catch(Exception ex) {
-			ex.printStackTrace();
-			return false;	
-		}
-	}
-
-	@Override
-	public boolean updateCart(Cart cart) {
-		try {
-
-			sessionFactory.getCurrentSession().update(cart);
 			return true;
 		}
 		catch(Exception ex) {
