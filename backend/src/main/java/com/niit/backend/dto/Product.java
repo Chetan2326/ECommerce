@@ -1,5 +1,6 @@
 package com.niit.backend.dto;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 import javax.persistence.Column;
@@ -17,7 +18,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @SuppressWarnings("deprecation")
 @Entity
-public class Product {
+public class Product implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 
 	// private fields
 	@Id
@@ -28,7 +31,6 @@ public class Product {
 	private String name;
 	@NotBlank(message = "Please enter the Brand Name!")
 	private String brand;
-	@JsonIgnore
 	@NotBlank(message = "Please enter the description for Product!")
 	private String description;
 	@Column(name = "unit_price")

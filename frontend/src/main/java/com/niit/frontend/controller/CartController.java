@@ -22,25 +22,38 @@ public class CartController {
 	@RequestMapping("/show")
 	public ModelAndView showCart(@RequestParam(name = "result", required=false)String result) {
 		ModelAndView mv = new ModelAndView("page");
+
 		if(result!=null) {
 			switch(result) {
-			case "updated":
-				mv.addObject("message", "CartLine has been updated successfully!");
-				break;
 			case "added":
-				mv.addObject("message", "CartLine has been added successfully!");
+				mv.addObject("message", "Product has been successfully added inside cart!");					
+				cartService.validateCartLine();
+				break;
+			case "unavailable":
+				mv.addObject("message", "Product quantity is not available!");					
+				break;
+			case "updated":
+				mv.addObject("message", "Cart has been updated successfully!");					
+				cartService.validateCartLine();
+				break;
+			case "modified":
+				mv.addObject("message", "One or more items inside cart has been modified!");
+				break;
+			case "maximum":
+				mv.addObject("message", "Maximum limit for the item has been reached!");
 				break;
 			case "deleted":
-				mv.addObject("message", "CartLine has been removed successfully!");
-				break;					
-			case "error":
-				mv.addObject("message", "Something went wrong!");
-				break;
-			case  "maxUpdate":
-				mv.addObject("message", "Requested more than product available!");
+				mv.addObject("message", "CartLine has been successfully removed!");
 				break;
 			}
 		}
+		else {
+			String response = cartService.validateCartLine();
+			if(response.equals("result=modified")) {
+				mv.addObject("message", "One or more items inside cart has been modified!");
+			}
+		}
+
 		mv.addObject("title", "User Cart");
 		mv.addObject("userClickShowCart", true);
 		mv.addObject("cartLines", cartService.getCartLines());		
@@ -66,6 +79,19 @@ public class CartController {
 		return "redirect:/cart/show?"+response;
 		
 	}	
-	
+	/* after validating it redirect to checkout
+	 * if result received is success proceed to checkout 
+	 * else display the message to the user about the changes in cart page
+	 * */	
+	@RequestMapping("/validate")
+	public String validateCart() {	
+		String response = cartService.validateCartLine();
+		if(!response.equals("result=success")) {
+			return "redirect:/cart/show?"+response;
+		}
+		else {
+			return "redirect:/cart/checkout";
+		}
+	}	
 	
 }

@@ -48,14 +48,14 @@
 	<div class="wrapper">
 
 		<!-- Navigation -->
-		<nav class="navbar navbar-inverse navbar-expand-md navbar-dark bg-dark fixed-top"
-			role="navigation">
-			<div class="container">
-				<div class="navbar-header">
-					<a class="navbar-brand" href="${contextRoot}/home">NIIT ECOMMERCE</a>
-				</div>
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	        <div class="container">
+	            <!-- Brand and toggle get grouped for better mobile display -->
+	            <div class="navbar-header">
+	                <a class="navbar-brand" href="${contextRoot}/home">NIIT ECOMMERCE</a>
+	            </div>
 			</div>
-		</nav>
+		</nav>	
 
 		<!-- Page Content -->
 

@@ -28,7 +28,7 @@
 <link href="${css}/myapp.css" rel="stylesheet">
 
 
-<title>ECOMMERCE - ${title}</title>
+<title>NIIT ECOMMERCE - FlowException</title>
 
 </head>
 
@@ -36,35 +36,60 @@
 
 	<div class="wrapper">
 
-		<!-- Navigation Bar -->
-		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 	        <div class="container">
 	            <!-- Brand and toggle get grouped for better mobile display -->
 	            <div class="navbar-header">
-	                <a class="navbar-brand" href="${contextRoot}/home">NIIT ECOMMERCE</a>
+	                <a class="navbar-brand" href="${contextRoot}/home">Home</a>
 	            </div>
 			</div>
-		</nav>	
-
+		</nav>
+			
+		
 		<div class="content">
+		
 			<div class="container">
+			
 				<div class="row">
+				
 					<div class="col-xs-12">
+					
+						
 						<div class="jumbotron">
-							<h1>${errorTitle}</h1>
+						
+							<h1>Please contact your administrator!</h1>
 							<hr/>
-							<c:if test="${not empty userModel.id and empty errorDescription}">
-								<c:redirect url="../../..${contextRoot}/home"/>
-							</c:if>
+						
 							<blockquote style="word-wrap:break-word">
-								${errorDescription}
+								
+								${flowExecutionException}
+							
 							</blockquote>						
+
+							<blockquote style="word-wrap:break-word">
+								
+								${rootCauseException}
+							
+							</blockquote>						
+						
 						</div>
+						
+											
 					</div>					
+				
 				</div>
+			
 			</div>
+							
 		</div>
-		<%@include file="./shared/footer.jsp" %>
+
+		
+		<%@include file="../../shared/footer.jsp" %>
+
 	</div>
+		
+	
 </body>
+
+
 </html>

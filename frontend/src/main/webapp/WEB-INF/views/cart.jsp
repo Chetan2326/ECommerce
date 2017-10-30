@@ -1,3 +1,4 @@
+<c:set var="availableCount" value="${userModel.cart.cartLines}" />
 <div class="container">
 	<c:if test="${not empty message}">
 		<div class="alert alert-info">
@@ -23,6 +24,9 @@
 
 				<tbody>
 					<c:forEach items="${cartLines}" var="cartLine">
+						<c:if test="${cartLine.available == false}">
+							<c:set var="availableCount" value="${availableCount - 1}"/>
+						</c:if>
 						<tr>
 							<td data-th="Product">
 								<div class="row">
@@ -71,11 +75,16 @@
 						</td>
 						<td colspan="2" class="hidden-xs"></td>
 						<td class="hidden-xs text-center"><strong>Total &#8377; ${userModel.cart.grandTotal}</strong></td>
-						<td>
-							<a href="#" class="btn btn-success btn-block">Checkout
-								<span class="glyphicon glyphicon-chevron-right"></span>
-							</a>
-						</td>
+						<c:choose>
+							<c:when test="${availableCount != 0}">
+								<td><a href="${contextRoot}/cart/validate" class="btn btn-success btn-block">
+								Checkout <span class="glyphicon glyphicon-chevron-right"></span></a></td>
+							</c:when>							
+							<c:otherwise>
+								<td><a href="javascript:void(0)" class="btn btn-success btn-block disabled">
+								<strike>Checkout <span class="glyphicon glyphicon-chevron-right"></span></strike></a></td>
+							</c:otherwise>
+						</c:choose>						
 					</tr>
 				</tfoot>
 

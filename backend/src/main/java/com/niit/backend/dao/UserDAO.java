@@ -7,12 +7,17 @@ import com.niit.backend.dto.User;
 
 public interface UserDAO {
 
-	// add an user
-	boolean addUser(User user);
+	// user related operation
 	User getByEmail(String email);
+	User get(int id);
 	
-	// add an address
+	//add user
+	boolean addUser(User user);
+
+	// adding and updating a new address
+	Address getAddress(int addressId);
 	boolean addAddress(Address address);
+	boolean updateAddress(Address address);
 	Address getBillingAddress(int userId);
 	List<Address> listShippingAddresses(int userId);
 
